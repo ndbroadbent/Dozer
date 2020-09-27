@@ -22,6 +22,7 @@ final class General: NSViewController, PreferencePane {
     @IBOutlet private var CheckForUpdatesCheckbox: NSButton!
     @IBOutlet private var HideStatusBarIconsAtLaunchCheckbox: NSButton!
     @IBOutlet private var HideStatusBarIconsAfterDelayCheckbox: NSButton!
+    @IBOutlet private var UseSingleDozerIconCheckbox: NSButton!
     @IBOutlet private var HideStatusBarIconsSecondsPopUpButton: NSPopUpButton!
     @IBOutlet private var HideBothDozerIconsCheckbox: NSButton!
     @IBOutlet private var EnableRemoveDozerIconCheckbox: NSButton!
@@ -44,6 +45,7 @@ final class General: NSViewController, PreferencePane {
 
         HideStatusBarIconsAtLaunchCheckbox.isChecked = Defaults[.hideAtLaunchEnabled]
         HideStatusBarIconsAfterDelayCheckbox.isChecked = Defaults[.hideAfterDelayEnabled]
+        UseSingleDozerIconCheckbox.isChecked = Defaults[.useSingleDozerIcon]
         HideBothDozerIconsCheckbox.isChecked = Defaults[.noIconMode]
         EnableRemoveDozerIconCheckbox.isChecked = Defaults[.removeDozerIconEnabled]
         ShowIconAndMenuCheckbox.isChecked = Defaults[.showIconAndMenuEnabled]
@@ -58,6 +60,18 @@ final class General: NSViewController, PreferencePane {
         ToggleMenuItemsView.shortcutValueChange = { _ -> Void in
             self.userShortCut = self.ToggleMenuItemsView.shortcutValue
             self.configureEnabledNoIconCheckbox()
+        }
+
+        updateTitles()
+    }
+
+    private func updateTitles() {
+        if UseSingleDozerIconCheckbox.isChecked {
+            HideBothDozerIconsCheckbox.title =
+                "Hide Dozer icon when menu bar icons are hidden"
+        } else {
+            HideBothDozerIconsCheckbox.title =
+                "Hide both Dozer icons when menu bar icons are hidden"
         }
     }
 
@@ -79,6 +93,11 @@ final class General: NSViewController, PreferencePane {
 
     @IBAction private func hideStatusBarIconsAfterDelayClicked(_ sender: NSButton) {
         DozerIcons.shared.hideStatusBarIconsAfterDelay = HideStatusBarIconsAfterDelayCheckbox.isChecked
+    }
+
+    @IBAction private func useSingleDozerIconClicked(_ sender: NSButton) {
+        DozerIcons.shared.useSingleDozerIcon = UseSingleDozerIconCheckbox.isChecked
+        updateTitles()
     }
 
     @IBAction private func hideStatusBarIconsSecondsUpdated(_ sender: NSPopUpButton) {

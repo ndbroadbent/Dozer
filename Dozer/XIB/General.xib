@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="15705" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15705"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097.3"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -19,16 +19,17 @@
                 <outlet property="LaunchAtLoginCheckbox" destination="29f-2D-VsY" id="X2Z-FE-7IA"/>
                 <outlet property="ShowIconAndMenuCheckbox" destination="oAW-Yf-7fi" id="7ZW-82-aRZ"/>
                 <outlet property="ToggleMenuItemsView" destination="4Dt-wS-aZ8" id="PAm-fa-zGy"/>
+                <outlet property="UseSingleDozerIconCheckbox" destination="yqX-R3-VNS" id="y96-Z9-1X5"/>
                 <outlet property="view" destination="c22-O7-iKe" id="buC-Sz-vlD"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView translatesAutoresizingMaskIntoConstraints="NO" id="c22-O7-iKe">
-            <rect key="frame" x="0.0" y="0.0" width="405" height="415"/>
+            <rect key="frame" x="0.0" y="0.0" width="405" height="468"/>
             <subviews>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="29f-2D-VsY">
-                    <rect key="frame" x="18" y="379" width="361" height="18"/>
+                    <rect key="frame" x="18" y="432" width="361" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Launch at login" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="qB0-b5-ye2">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -39,7 +40,7 @@
                     </connections>
                 </button>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="htn-2c-54s">
-                    <rect key="frame" x="18" y="351" width="361" height="18"/>
+                    <rect key="frame" x="18" y="404" width="361" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Automatically check for updates" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="3Mj-bx-k9f">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -50,11 +51,11 @@
                     </connections>
                 </button>
                 <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="ayr-kp-VXW">
-                    <rect key="frame" x="20" y="339" width="365" height="5"/>
+                    <rect key="frame" x="20" y="392" width="365" height="5"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                 </box>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="phN-BY-WEC">
-                    <rect key="frame" x="18" y="313" width="357" height="18"/>
+                    <rect key="frame" x="18" y="366" width="357" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Hide menu bar icons at launch" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="24v-K4-mhc">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -65,7 +66,7 @@
                     </connections>
                 </button>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hOy-nu-Sy0">
-                    <rect key="frame" x="18" y="283" width="179" height="18"/>
+                    <rect key="frame" x="18" y="336" width="179" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Hide menu bar icons after" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="hS1-gl-Pc1">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -76,11 +77,11 @@
                     </connections>
                 </button>
                 <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ziw-so-qpj" userLabel="10 seconds">
-                    <rect key="frame" x="197" y="279" width="114" height="25"/>
+                    <rect key="frame" x="197" y="332" width="114" height="25"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <popUpButtonCell key="cell" type="push" title="10 seconds" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" tag="10" imageScaling="proportionallyDown" inset="2" selectedItem="OdJ-mZ-u0T" id="JbX-Xw-iVE" userLabel="10 seconds">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="menu"/>
+                        <font key="font" metaFont="system"/>
                         <menu key="menu" id="fJp-Cl-42M">
                             <items>
                                 <menuItem title="30 seconds" tag="30" id="dAj-2T-ECp"/>
@@ -97,7 +98,7 @@
                     </connections>
                 </popUpButton>
                 <textField horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CNz-dE-9vs">
-                    <rect key="frame" x="36" y="267" width="349" height="13"/>
+                    <rect key="frame" x="36" y="320" width="349" height="13"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="The delay resets when you interact with the menu bar." id="QoH-wj-4Bo">
                         <font key="font" metaFont="system" size="10"/>
@@ -106,17 +107,17 @@
                     </textFieldCell>
                 </textField>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w7z-Qa-kqw">
-	            <rect key="frame" x="18" y="240" width="357" height="18"/>
-	            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-	            <buttonCell key="cell" type="check" title="Hide both Dozer icons when menu bar icons are hidden" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="PrK-hp-6i2">
-		            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-	            </buttonCell>
-	            <connections>
-		            <action selector="hideBothDozerIconsClicked:" target="-2" id="PdP-dQ-ir6"/>
-	            </connections>
+                    <rect key="frame" x="18" y="256" width="357" height="18"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="check" title="Hide both Dozer icons when menu bar icons are hidden" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="PrK-hp-6i2">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="hideBothDozerIconsClicked:" target="-2" id="PdP-dQ-ir6"/>
+                    </connections>
                 </button>
                 <textField horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yjj-cw-XAs">
-                    <rect key="frame" x="36" y="224" width="349" height="13"/>
+                    <rect key="frame" x="36" y="240" width="349" height="13"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Use the shortcut to show the menu bar icons." id="vbw-Q7-ecG">
                         <font key="font" metaFont="system" size="10"/>
@@ -124,8 +125,28 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yqX-R3-VNS">
+                    <rect key="frame" x="18" y="296" width="357" height="18"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="check" title="Use a single Dozer icon" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="s9V-gP-f8P">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="useSingleDozerIconClicked:" target="-2" id="cWQ-jH-p9d"/>
+                    </connections>
+                </button>
+                <textField horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PeR-hA-8XB">
+                    <rect key="frame" x="36" y="280" width="349" height="13"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Use one icon as both the toggle and the point of interaction " id="j1R-tL-uDw">
+                        <font key="font" metaFont="system" size="10"/>
+                        <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pDX-1f-4hl">
-                    <rect key="frame" x="18" y="197" width="361" height="18"/>
+                    <rect key="frame" x="18" y="213" width="361" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Enable 'remove' Dozer icon" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Toa-to-mCu">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -136,7 +157,7 @@
                     </connections>
                 </button>
                 <textField horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IDw-Ag-Gcv">
-                    <rect key="frame" x="36" y="168" width="349" height="26"/>
+                    <rect key="frame" x="36" y="184" width="349" height="26"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Enable additional Dozer icon. Show/hide less frequently used menu bar icons using option+click." id="UjO-Yp-XO4">
                         <font key="font" metaFont="system" size="10"/>
@@ -145,7 +166,7 @@
                     </textFieldCell>
                 </textField>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oAW-Yf-7fi">
-                    <rect key="frame" x="18" y="140" width="352" height="18"/>
+                    <rect key="frame" x="18" y="156" width="352" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Use full width of screen when showing menu bar icons" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="BFd-a4-rMo">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -156,7 +177,7 @@
                     </connections>
                 </button>
                 <textField horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kyk-ok-xNW">
-                    <rect key="frame" x="36" y="124" width="330" height="13"/>
+                    <rect key="frame" x="36" y="140" width="330" height="13"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Temporarily replaces Application menu and shows Dozer dock icon." id="ETO-zu-yhS">
                         <font key="font" metaFont="system" size="10"/>
@@ -165,15 +186,15 @@
                     </textFieldCell>
                 </textField>
                 <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="6I6-gw-UlF">
-                    <rect key="frame" x="20" y="113" width="365" height="5"/>
+                    <rect key="frame" x="20" y="129" width="365" height="5"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                 </box>
                 <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lku-wR-aPA">
-                    <rect key="frame" x="18" y="82" width="76" height="25"/>
+                    <rect key="frame" x="18" y="92" width="76" height="25"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <popUpButtonCell key="cell" type="push" title="10 px" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" tag="10" imageScaling="proportionallyDown" inset="2" selectedItem="K1H-GX-dgi" id="dMj-ju-7Q7">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="menu"/>
+                        <font key="font" metaFont="system"/>
                         <menu key="menu" id="Ve7-Ni-pIE">
                             <items>
                                 <menuItem title="10 px" state="on" tag="10" id="K1H-GX-dgi"/>
@@ -191,7 +212,7 @@
                     </connections>
                 </popUpButton>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TmQ-WL-Cmf">
-                    <rect key="frame" x="95" y="88" width="150" height="16"/>
+                    <rect key="frame" x="97" y="99" width="150" height="16"/>
                     <autoresizingMask key="autoresizingMask"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="Font size of Dozer icons" id="lI8-BD-YX6">
                         <font key="font" metaFont="system"/>
@@ -200,11 +221,11 @@
                     </textFieldCell>
                 </textField>
                 <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D1W-S4-kqi">
-                    <rect key="frame" x="18" y="52" width="76" height="25"/>
+                    <rect key="frame" x="18" y="62" width="76" height="25"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <popUpButtonCell key="cell" type="push" title="40 px" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" tag="40" imageScaling="proportionallyDown" inset="2" selectedItem="nEF-ne-Uur" id="4qm-Fp-7BG">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="menu"/>
+                        <font key="font" metaFont="system"/>
                         <menu key="menu" id="PKu-6K-JrX">
                             <items>
                                 <menuItem title="40 px" state="on" tag="40" id="nEF-ne-Uur"/>
@@ -222,7 +243,7 @@
                     </connections>
                 </popUpButton>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tB7-K2-Gts">
-                    <rect key="frame" x="95" y="58" width="131" height="16"/>
+                    <rect key="frame" x="97" y="69" width="131" height="16"/>
                     <autoresizingMask key="autoresizingMask"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="Width of Dozer icons" id="y67-Ov-Fvx">
                         <font key="font" metaFont="system"/>
@@ -231,15 +252,15 @@
                     </textFieldCell>
                 </textField>
                 <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="6Mb-v7-wV4">
-                    <rect key="frame" x="20" y="43" width="365" height="5"/>
+                    <rect key="frame" x="20" y="48" width="365" height="5"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                 </box>
                 <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Dt-wS-aZ8" customClass="MASShortcutView">
-                    <rect key="frame" x="20" y="15" width="106" height="20"/>
+                    <rect key="frame" x="20" y="16" width="106" height="20"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                 </customView>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nmU-jA-Ht8">
-                    <rect key="frame" x="130" y="17" width="249" height="17"/>
+                    <rect key="frame" x="134" y="18" width="249" height="17"/>
                     <autoresizingMask key="autoresizingMask"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="Show/hide menu bar icons" id="HZP-sl-H5I">
                         <font key="font" metaFont="system"/>
@@ -250,9 +271,9 @@
             </subviews>
             <constraints>
                 <constraint firstAttribute="width" constant="405" id="WEJ-WZ-mea"/>
-                <constraint firstAttribute="height" constant="415" id="ieY-Q5-nHf"/>
+                <constraint firstAttribute="height" constant="468" id="ieY-Q5-nHf"/>
             </constraints>
-            <point key="canvasLocation" x="137.5" y="172.5"/>
+            <point key="canvasLocation" x="136.5" y="199"/>
         </customView>
     </objects>
 </document>

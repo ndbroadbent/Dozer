@@ -13,10 +13,19 @@ public final class DozerIcons {
     private var previousApp = NSRunningApplication()
 
     private init() {
-        dozerIcons.append(NormalStatusIcon())
+        let rightNormalIcon = NormalStatusIcon()
+        if useSingleDozerIcon {
+            rightNormalIcon.useSingleIcon = true
+        }
+        dozerIcons.append(rightNormalIcon)
 
         if !hideBothDozerIcons  || !Defaults[.isShortcutSet] {
-            dozerIcons.append(NormalStatusIcon())
+            let leftNormalIcon = NormalStatusIcon()
+            if useSingleDozerIcon {
+                leftNormalIcon.useSingleIcon = true
+                leftNormalIcon.invisible = true
+            }
+            dozerIcons.append(leftNormalIcon)
         }
 
         if enableRemoveDozerIcon {
@@ -27,8 +36,8 @@ public final class DozerIcons {
             startTimer()
         }
 
-        Defaults.observe(.isShortcutSet) { change in
-            self.triggerHideBothDozerIcons()
+        Defaults.observe(.isShortcutSet) { _ in
+            self.triggerUpdateDozerIcons()
         }
         .tieToLifetime(of: self)
     }
@@ -67,15 +76,22 @@ public final class DozerIcons {
         }
     }
 
-    public var hideBothDozerIcons: Bool = Defaults[.noIconMode] {
+    public var useSingleDozerIcon: Bool = Defaults[.useSingleDozerIcon] {
         didSet {
-            Defaults[.noIconMode] = self.hideBothDozerIcons
-            triggerHideBothDozerIcons()
+            Defaults[.useSingleDozerIcon] = self.useSingleDozerIcon
+            triggerUpdateDozerIcons()
         }
     }
 
-    public func triggerHideBothDozerIcons() {
-        let normalStatusIconsCount = dozerIcons.filter { $0.type == .normal}.count
+    public var hideBothDozerIcons: Bool = Defaults[.noIconMode] {
+        didSet {
+            Defaults[.noIconMode] = self.hideBothDozerIcons
+            triggerUpdateDozerIcons()
+        }
+    }
+
+    public func triggerUpdateDozerIcons() {
+        let normalStatusIconsCount = dozerIcons.filter { $0.type == .normal }.count
         if hideBothDozerIcons && Defaults[.isShortcutSet] {
             if normalStatusIconsCount == 2 {
                 let rightDozerIconXPos = get(dozerIcon: .normalRight).xPositionOnScreen
@@ -87,6 +103,18 @@ public final class DozerIcons {
                 dozerIcons.append(NormalStatusIcon())
             }
         }
+
+        let normalIcons = dozerIcons.filter { $0.type == .normal }
+        if normalIcons.count == 2 {
+            // These might have been switched around in the bar, but this is the original order.
+            let rightNormalIcon = normalIcons[0]
+            let leftNormalIcon = normalIcons[1]
+            rightNormalIcon.invisible = false
+            rightNormalIcon.useSingleIcon = useSingleDozerIcon
+            leftNormalIcon.invisible = useSingleDozerIcon
+            leftNormalIcon.useSingleIcon = useSingleDozerIcon
+        }
+
         show()
     }
 
@@ -287,6 +315,7 @@ public final class DozerIcons {
         for statusIcon in dozerIcons where statusIcon.type == .normal {
             normalStatusIconsXPosition.append(statusIcon.xPositionOnScreen)
         }
+
         switch dozerIcon {
         case .remove:
             guard let removeStatusIcon = dozerIcons.first(where: { $0.type == .remove }) else {
@@ -294,11 +323,27 @@ public final class DozerIcons {
             }
             return removeStatusIcon
         case .normalLeft:
+            if useSingleDozerIcon {
+                // .normalLeft is the icon that expands to hide all the other status bar items.
+                // When using a single icon, we should always hide the visible icon (actually .normalRight)
+                // since the image is shown at the right of the status bar item.
+                guard let leftStatusIcon = dozerIcons.first(where: { $0.type == .normal && !$0.invisible }) else {
+                    fatalError("Failed getting invisible status icon on the left")
+                }
+                return leftStatusIcon
+            }
             guard let leftStatusIcon = dozerIcons.first(where: { $0.xPositionOnScreen == normalStatusIconsXPosition.min() }) else {
                 fatalError("Failed getting status icon on the left")
             }
             return leftStatusIcon
         case .normalRight:
+            if useSingleDozerIcon {
+                guard let rightStatusIcon = dozerIcons.first(where: { $0.type == .normal && $0.invisible }) else {
+                    fatalError("Failed getting visible status icon on the right")
+                }
+                return rightStatusIcon
+            }
+
             guard let rightStatusIcon = dozerIcons.first(where: { $0.xPositionOnScreen == normalStatusIconsXPosition.max() }) else {
                 fatalError("Failed getting status icon on the right")
             }

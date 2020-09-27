@@ -11,6 +11,7 @@ extension Defaults.Keys {
     static let hideAtLaunchEnabled: Defaults.Key<Bool> = Key<Bool>("hideAtLaunchEnabled", default: false)
     static let hideAfterDelayEnabled: Defaults.Key<Bool> = Key<Bool>("hideAfterDelayEnabled", default: false)
     static let hideAfterDelay: Defaults.Key<TimeInterval> = Key<TimeInterval>("hideAfterDelay", default: 10)
+    static let useSingleDozerIcon: Defaults.Key<Bool> = Key<Bool>("useSingleDozerIcon", default: false)
     static let noIconMode: Defaults.Key<Bool> = Key<Bool>("noIconMode", default: false)
     static let removeDozerIconEnabled: Defaults.Key<Bool> = Key<Bool>("removeStatusIconEnabled", default: false)
     static let showIconAndMenuEnabled: Defaults.Key<Bool> = Key<Bool>("showIconAndMenuEnabled", default: false)
